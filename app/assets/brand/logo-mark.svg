@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 1024 1024"><clipPath id="c"><rect width="1024" height="1024" rx="230"/></clipPath><g clip-path="url(#c)"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E2E2E"/><stop offset=".55" stop-color="#111111"/><stop offset="1" stop-color="#111111"/></linearGradient>
+  <radialGradient id="r" cx=".88" cy=".08" r=".62"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".14"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+  <radialGradient id="r2" cx=".08" cy=".96" r=".6"><stop offset="0" stop-color="#000000" stop-opacity=".75"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1024" height="1024" fill="url(#g)"/><rect width="1024" height="1024" fill="url(#r)"/><rect width="1024" height="1024" fill="url(#r2)"/><g transform="translate(512 512) scale(0.9) translate(-512 -512)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M760 512 A248 248 0 1 1 690 338" stroke="#fff" stroke-width="68"/>
+  <path d="M512 330 V512 C 560 466, 612 466, 652 512 S 742 558, 802 472" stroke="#fff" stroke-width="68"/>
+  <circle cx="814" cy="452" r="50.32" fill="#FFFFFF"/></g></g></svg>
