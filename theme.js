@@ -33,3 +33,44 @@ document.addEventListener('DOMContentLoaded',function(){
   var sh=document.querySelector('.shots');if(sh&&!R){var stop=false;['pointerdown','touchstart','wheel'].forEach(function(ev){sh.addEventListener(ev,function(){stop=true},{passive:true})});
     setInterval(function(){if(stop||sh.scrollWidth<=sh.clientWidth+4)return;var r=sh.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var w=sh.firstElementChild.getBoundingClientRect().width+16;var n=sh.scrollLeft+w;sh.scrollTo({left:n>=sh.scrollWidth-sh.clientWidth+4?0:n,behavior:'smooth'})},3200)}
 });})();
+
+/* Sesión compartida con /app: si ya entraste, la cabecera muestra tu perfil en lugar de «Entrar / Crear cuenta». */
+(function(){
+  var TK='fc3_token',US='fc3_user',API=(localStorage.getItem('fc3_api')||'https://fluye-api-demo.onrender.com').replace(/\/+$/,'');
+  function tok(){try{return localStorage.getItem(TK)}catch(e){return null}}
+  function usr(){try{return JSON.parse(localStorage.getItem(US)||'null')}catch(e){return null}}
+  function ini(n){n=String(n||'').trim().split(/\s+/);return ((n[0]||'?')[0]+((n[1]||'')[0]||'')).toUpperCase()}
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  var box=null;
+  function mount(u){
+    var nav=document.querySelector('header.top .nav');if(!nav||!u)return;
+    var outs=nav.querySelectorAll('a[href*="inicio=entrar"],a[href*="inicio=registro"]');for(var i=0;i<outs.length;i++)outs[i].style.display='none';
+    if(box)box.remove();
+    var owner=u.role==='owner';
+    box=document.createElement('div');box.className='acct';
+    box.innerHTML='<button class="acct-b" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Tu cuenta: '+esc(u.name)+'">'+(u.photo?'<img src="'+esc(u.photo)+'" alt="">':'<span>'+esc(ini(u.name))+'</span>')+'</button>'+
+      '<div class="acct-m" role="menu" hidden><div class="acct-h"><b>'+esc(u.name)+'</b><small>'+esc(u.email||(owner?'Cuenta de negocio':'Cliente'))+'</small></div>'+
+      '<a role="menuitem" href="/app/?ir=profile">Mi perfil</a>'+
+      '<a role="menuitem" href="/app/?ir='+(owner?'owner':'appts')+'">'+(owner?'Ir al panel del negocio':'Ir a la app · Mis citas')+'</a>'+
+      '<a role="menuitem" href="/app/?ir=security">Configuración</a>'+
+      (u.isAdmin?'<button role="menuitem" type="button" class="acct-admin">Panel de administración</button>':'')+
+      '<button role="menuitem" type="button" class="acct-out">Cerrar sesión</button></div>';
+    nav.appendChild(box);
+    var b=box.querySelector('.acct-b'),m=box.querySelector('.acct-m');
+    function set(o){m.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false');if(o){var f=m.querySelector('a');f&&f.focus({preventScroll:true})}}
+    b.onclick=function(e){e.stopPropagation();set(m.hidden)};
+    document.addEventListener('click',function(e){if(!box.contains(e.target))set(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){set(false);b.focus()}});
+    box.querySelector('.acct-out').onclick=function(){var t=tok();try{fetch(API+'/api/auth/logout',{method:'POST',headers:{authorization:'Bearer '+t,'content-type':'application/json'},body:'{}',keepalive:true}).catch(function(){})}catch(e){}
+      try{localStorage.removeItem(TK);localStorage.removeItem(US)}catch(e){}unmount()};
+    var ad=box.querySelector('.acct-admin');if(ad)ad.onclick=function(){fetch(API+'/api/admin/ticket',{method:'POST',headers:{authorization:'Bearer '+tok(),'content-type':'application/json'},body:'{}'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.url)location.href=j.url})};
+  }
+  function unmount(){if(box){box.remove();box=null}var outs=document.querySelectorAll('header.top .nav a[href*="inicio="]');for(var i=0;i<outs.length;i++)outs[i].style.display=''}
+  function start(){
+    if(!tok())return;
+    var cached=usr();if(cached)mount({name:cached.name,email:cached.email,role:cached.role,photo:cached.photo||cached.avatarUrl||null,isAdmin:false});
+    fetch(API+'/api/me',{headers:{authorization:'Bearer '+tok()}}).then(function(r){if(r.status===401){try{localStorage.removeItem(TK);localStorage.removeItem(US)}catch(e){}unmount();return null}return r.ok?r.json():null})
+      .then(function(j){if(j&&j.user){try{localStorage.setItem(US,JSON.stringify(j.user))}catch(e){}mount({name:j.user.name,email:j.user.email,role:j.user.role,photo:j.user.photo||j.user.avatarUrl||null,isAdmin:!!j.user.isAdmin})}}).catch(function(){});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
