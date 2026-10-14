@@ -1,1 +1,0 @@
-import{n as e}from"./index-CpMThGE2.js";var t=class extends e{async show(e){}async hide(e){}};export{t as SplashScreenWeb};
