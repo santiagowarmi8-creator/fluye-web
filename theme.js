@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var TK='fc3_token',US='fc3_user',API=(localStorage.getItem('fc3_api')||'https://fluye-api-demo.onrender.com').replace(/\/+$/,'');
   function tok(){try{return localStorage.getItem(TK)}catch(e){return null}}
   function usr(){try{return JSON.parse(localStorage.getItem(US)||'null')}catch(e){return null}}
+  function ph(p){return p?(p.charAt(0)==='/'?API+p:p):null}
   function ini(n){n=String(n||'').trim().split(/\s+/);return ((n[0]||'?')[0]+((n[1]||'')[0]||'')).toUpperCase()}
   function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   var box=null;
@@ -68,9 +69,9 @@ document.addEventListener('DOMContentLoaded',function(){
   function unmount(){if(box){box.remove();box=null}var outs=document.querySelectorAll('header.top .nav a[href*="inicio="]');for(var i=0;i<outs.length;i++)outs[i].style.display=''}
   function start(){
     if(!tok())return;
-    var cached=usr();if(cached)mount({name:cached.name,email:cached.email,role:cached.role,photo:cached.photo||cached.avatarUrl||null,isAdmin:false});
+    var cached=usr();if(cached)mount({name:cached.name,email:cached.email,role:cached.role,photo:ph(cached.photo),isAdmin:false});
     fetch(API+'/api/me',{headers:{authorization:'Bearer '+tok()}}).then(function(r){if(r.status===401){try{localStorage.removeItem(TK);localStorage.removeItem(US)}catch(e){}unmount();return null}return r.ok?r.json():null})
-      .then(function(j){if(j&&j.user){try{localStorage.setItem(US,JSON.stringify(j.user))}catch(e){}mount({name:j.user.name,email:j.user.email,role:j.user.role,photo:j.user.photo||j.user.avatarUrl||null,isAdmin:!!j.user.isAdmin})}}).catch(function(){});
+      .then(function(j){if(j&&j.user){try{localStorage.setItem(US,JSON.stringify(j.user))}catch(e){}mount({name:j.user.name,email:j.user.email,role:j.user.role,photo:ph(j.user.photo),isAdmin:!!j.user.isAdmin})}}).catch(function(){});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
