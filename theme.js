@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var b=box.querySelector('.acct-b'),m=box.querySelector('.acct-m');
     function set(o){m.hidden=!o;b.setAttribute('aria-expanded',o?'true':'false');if(o){var f=m.querySelector('a');f&&f.focus({preventScroll:true})}}
     b.onclick=function(e){e.stopPropagation();set(m.hidden)};
-    document.addEventListener('click',function(e){if(!box.contains(e.target))set(false)});
+    document.addEventListener('click',function(e){if(box&&box.isConnected&&!box.contains(e.target))set(false)});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){set(false);b.focus()}});
     box.querySelector('.acct-out').onclick=function(){var t=tok();try{fetch(API+'/api/auth/logout',{method:'POST',headers:{authorization:'Bearer '+t,'content-type':'application/json'},body:'{}',keepalive:true}).catch(function(){})}catch(e){}
       try{localStorage.removeItem(TK);localStorage.removeItem(US)}catch(e){}unmount()};
