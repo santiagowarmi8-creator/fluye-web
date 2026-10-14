@@ -139,3 +139,8 @@ body{overflow-x:clip}
 @media(max-width:900px){.stage{height:420px;margin-top:8px}.b1,.b2{width:200px;height:200px}.b3,.b4{width:160px;height:160px}}
 @media(max-width:560px){.stage{height:340px}.mark{width:min(230px,58vw)}.stage .blob{filter:blur(34px)}}
 @media(prefers-reduced-motion:reduce){.stage *,.mark,.mark-in{animation:none!important}.mark-in{transform:rotateY(-8deg) rotateX(4deg)}}
+/* Cabecera móvil: nada se encoge ni se monta (320–430 px) */
+@media(max-width:900px){.nav{gap:8px}.nav .logo,.nav .tg,.nav .btn.s{flex:0 0 auto}.nav .logo{margin-right:auto;min-width:0}.nav .tg{width:34px;height:34px;font-size:15px;display:grid;place-items:center;padding:0}}
+@media(max-width:420px){.nav .logo{font-size:18px;gap:8px}.nav .btn.s{padding:0 10px;font-size:12.5px}}
+@media(max-width:380px){.nav .logo{font-size:0;gap:0}}
+@media(max-width:340px){.w.nav{padding:0 14px}.nav{gap:6px}.nav .btn.s{padding:0 9px;font-size:12px}}
