@@ -57,7 +57,7 @@ footer.f{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:va
 footer.f .w{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}footer.f nav{display:flex;gap:18px;flex-wrap:wrap}footer.f a{text-decoration:none}
 .legal{max-width:760px;padding:56px 22px 80px;margin:0 auto}.legal h1{font-size:44px}.legal h2{font-size:22px;margin:34px 0 8px;letter-spacing:-.02em}.legal p,.legal li{color:var(--mut)}
 @media(max-width:900px){.shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -22px;padding:4px 22px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.shots::-webkit-scrollbar{display:none}.shot{flex:0 0 62%;scroll-snap-align:center}.cnav{display:flex;justify-content:center;gap:8px;margin-top:6px}.cnav i{width:7px;height:7px;border-radius:9px;background:var(--line);transition:width .3s,background .3s}.cnav i.on{width:22px;background:var(--fg)}.hero,.split,.price{grid-template-columns:1fr}.grid,.steps{grid-template-columns:1fr 1fr}.shots{grid-template-columns:1fr 1fr}.phones{height:520px;max-width:440px;margin:0 auto;width:100%}.links{display:none}.hero{padding-top:48px}}
-@media(max-width:560px){.grid,.steps{grid-template-columns:1fr}.ph{width:200px}.phones{height:440px}section{padding:72px 0}.band{padding:34px}.nav .btn.g{display:none}}
+@media(max-width:560px){.grid,.steps{grid-template-columns:1fr}.ph{width:200px}.phones{height:440px}section{padding:72px 0}.band{padding:34px}.nav .btn.s{padding:0 11px;font-size:13px;height:34px}.nav .btn.g.s{border:1px solid var(--line,currentColor)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .d{display:none}:root[data-theme=dark] .l{display:none}:root[data-theme=dark] .d{display:block}
 @media(prefers-color-scheme:dark){:root:not([data-theme=light]) .l{display:none}:root:not([data-theme=light]) .d{display:block}}
@@ -102,3 +102,6 @@ section{scroll-margin-top:110px}
 .facts b span{font-size:inherit;color:inherit}
 .band .eyebrow em{color:inherit;border-color:currentColor}
 .w.facts{padding:0}@media(max-width:1164px){.w.facts{margin-left:22px;margin-right:22px}}
+
+.login-hint{margin-top:14px;font-size:15px;opacity:.85}.login-hint a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:380px){.nav .logo{font-size:0}.nav .logo img{margin:0}}
