@@ -105,3 +105,37 @@ section{scroll-margin-top:110px}
 
 .login-hint{margin-top:14px;font-size:15px;opacity:.85}.login-hint a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:380px){.nav .logo{font-size:0}.nav .logo img{margin:0}}
+
+/* Portada v2: marca animada de Fluye con formas de color flotando (solo CSS, sin cambio de diseño al cargar) */
+.stage{position:relative;height:560px;display:grid;place-items:center;isolation:isolate}
+body{overflow-x:clip}
+.stage .blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.55;z-index:-1;will-change:transform;animation:drift 18s ease-in-out infinite alternate}
+.b1{width:300px;height:300px;background:#1D9BF0;top:6%;left:4%}
+.b2{width:260px;height:260px;background:#FF5FA2;bottom:4%;right:2%;animation-duration:22s!important;animation-delay:-6s!important}
+.b3{width:220px;height:220px;background:#FFB020;top:2%;right:12%;animation-duration:26s!important;animation-delay:-3s!important;opacity:.42!important}
+.b4{width:240px;height:240px;background:#22C58B;bottom:8%;left:12%;animation-duration:20s!important;animation-delay:-10s!important;opacity:.4!important}
+:root[data-theme=dark] .stage .blob{opacity:.38}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .stage .blob{opacity:.38}}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.12)}100%{transform:translate(-30px,26px) scale(.94)}}
+.shp{position:absolute;z-index:1;will-change:transform;animation:bob 9s ease-in-out infinite}
+.s1{width:22px;height:22px;border-radius:50%;background:#1D9BF0;top:14%;left:18%}
+.s2{width:34px;height:34px;border-radius:50%;border:5px solid #FF5FA2;top:22%;right:14%;animation-duration:11s;animation-delay:-2s}
+.s3{width:46px;height:16px;border-radius:99px;background:#FFB020;bottom:20%;left:10%;animation-duration:12s;animation-delay:-5s;transform:rotate(-20deg)}
+.s4{width:18px;height:18px;background:#22C58B;border-radius:5px;bottom:14%;right:22%;animation-duration:10s;animation-delay:-1s}
+.s5{width:12px;height:12px;border-radius:50%;background:#8B5CF6;top:8%;left:52%;animation-duration:8s;animation-delay:-4s}
+.s6{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#FF5FA2,#FFB020);bottom:6%;left:46%;animation-duration:13s;animation-delay:-7s}
+.s7{width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:22px solid #1D9BF0;top:46%;right:4%;animation-duration:14s;animation-delay:-3s}
+@keyframes bob{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(10px,-18px) rotate(40deg)}66%{transform:translate(-12px,10px) rotate(-25deg)}}
+.mark{width:min(300px,62vw);aspect-ratio:1;perspective:900px;z-index:2;animation:mfloat 7s ease-in-out infinite}
+.mark-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:tilt 12s ease-in-out infinite;border-radius:25%;box-shadow:0 40px 80px -24px rgba(0,0,0,.45),0 18px 30px -18px rgba(0,0,0,.35)}
+.mark-in svg{display:block;border-radius:25%}
+.mark .glow{position:absolute;inset:-18%;border-radius:50%;z-index:-1;background:conic-gradient(from 0deg,#1D9BF0,#8B5CF6,#FF5FA2,#FFB020,#22C58B,#1D9BF0);filter:blur(38px);opacity:.55;animation:spin 14s linear infinite}
+.mark .shine{position:absolute;inset:0;border-radius:25%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 46%,transparent 60%);background-size:250% 100%;mix-blend-mode:screen;animation:shine 6s ease-in-out infinite;pointer-events:none}
+.mark .wave{stroke-dasharray:900;stroke-dashoffset:0;animation:wave 6s ease-in-out infinite}
+@keyframes tilt{0%,100%{transform:rotateY(-14deg) rotateX(8deg)}50%{transform:rotateY(14deg) rotateX(-6deg)}}
+@keyframes mfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{0%,20%{background-position:150% 0}60%,100%{background-position:-60% 0}}
+@keyframes wave{0%,15%{stroke-dashoffset:900}45%,100%{stroke-dashoffset:0}}
+@media(max-width:900px){.stage{height:420px;margin-top:8px}.b1,.b2{width:200px;height:200px}.b3,.b4{width:160px;height:160px}}
+@media(max-width:560px){.stage{height:340px}.mark{width:min(230px,58vw)}.stage .blob{filter:blur(34px)}}
+@media(prefers-reduced-motion:reduce){.stage *,.mark,.mark-in{animation:none!important}.mark-in{transform:rotateY(-8deg) rotateX(4deg)}}
