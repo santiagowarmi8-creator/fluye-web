@@ -1,0 +1,1 @@
+import{i as e,n as t}from"./router-cGuEtnVM.js";export{t as back,e as go};
