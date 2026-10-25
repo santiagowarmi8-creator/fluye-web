@@ -1,1 +1,0 @@
-import{i as e,n as t}from"./router-COdkr6sZ.js";export{t as back,e as go};
