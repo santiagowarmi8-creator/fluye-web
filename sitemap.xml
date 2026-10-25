@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://appfluye.app/</loc><lastmod>2026-10-13</lastmod></url>
-<url><loc>https://appfluye.app/privacidad/</loc><lastmod>2026-10-13</lastmod></url>
-<url><loc>https://appfluye.app/terminos/</loc><lastmod>2026-10-13</lastmod></url>
-<url><loc>https://appfluye.app/eliminar-cuenta/</loc><lastmod>2026-10-13</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url><loc>https://appfluye.app/</loc><lastmod>2026-10-25</lastmod><xhtml:link rel="alternate" hreflang="es" href="https://appfluye.app/"/><xhtml:link rel="alternate" hreflang="en" href="https://appfluye.app/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://appfluye.app/"/></url>
+<url><loc>https://appfluye.app/en/</loc><lastmod>2026-10-25</lastmod><xhtml:link rel="alternate" hreflang="es" href="https://appfluye.app/"/><xhtml:link rel="alternate" hreflang="en" href="https://appfluye.app/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://appfluye.app/"/></url>
+<url><loc>https://appfluye.app/descargar/</loc><lastmod>2026-10-25</lastmod></url>
+<url><loc>https://appfluye.app/privacidad/</loc><lastmod>2026-10-25</lastmod></url>
+<url><loc>https://appfluye.app/terminos/</loc><lastmod>2026-10-25</lastmod></url>
+<url><loc>https://appfluye.app/eliminar-cuenta/</loc><lastmod>2026-10-25</lastmod></url>
 </urlset>
