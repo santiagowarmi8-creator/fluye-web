@@ -160,3 +160,20 @@ body{overflow-x:clip}
 @keyframes acctin{from{opacity:0;transform:translateY(-4px)}}
 @media(max-width:900px){.acct-b{width:34px;height:34px;font-size:13px}}
 @media(prefers-reduced-motion:reduce){.acct-m{animation:none}}
+/* Fluye 7.10 — bienvenida web */
+.wl-ov{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);opacity:0;transition:opacity .22s}
+.wl-ov.in{opacity:1}.wl-ov.out{opacity:0}
+.wl-box{position:relative;width:min(420px,100%);background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:28px;padding:34px 26px 22px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:translateY(10px) scale(.98);transition:transform .25s}
+.wl-ov.in .wl-box{transform:none}
+.wl-x{position:absolute;top:12px;right:14px;width:36px;height:36px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);font-size:22px;line-height:1;cursor:pointer}
+.wl-logo{width:84px;height:84px;margin:0 auto 14px;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}.wl-logo img{width:100%;height:100%}
+.wl-logo.fl{animation:wlfloat 4.5s ease-in-out infinite}
+@keyframes wlfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wl-box h2{margin:0;font-size:30px;letter-spacing:-.04em}.wl-s{margin:4px 0 10px;font-weight:650;font-size:17px}.wl-p{margin:0 0 20px;color:var(--mut);font-size:14.5px;line-height:1.5}
+.wl-b{display:grid;gap:10px}.wl-l{margin-top:12px;border:0;background:none;color:var(--mut);font-size:14px;cursor:pointer;text-decoration:underline;padding:8px}
+.wl-gr{position:fixed;z-index:40;top:76px;right:16px;left:16px;margin-left:auto;max-width:430px;display:flex;align-items:center;gap:8px;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:20px;padding:8px 8px 8px 8px;box-shadow:0 14px 40px rgba(0,0,0,.22);opacity:0;transform:translateY(-8px);transition:opacity .24s,transform .24s}
+.wl-gr.in{opacity:1;transform:none}.wl-gr.out{opacity:0;transform:translateY(-8px)}
+.wl-gb{flex:1;min-width:0;display:flex;align-items:center;gap:12px;border:0;background:none;color:inherit;text-align:left;cursor:pointer;padding:4px 6px;font:inherit}
+.wl-gl img{width:30px;height:30px;border-radius:9px}.wl-gt{display:grid;line-height:1.25;min-width:0}.wl-gt small{color:var(--mut);font-size:12px}.wl-gt b{font-size:15px}.wl-gt span{color:var(--mut);font-size:13px}
+.wl-go{flex:none;background:var(--inv);color:var(--invfg);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:650;text-decoration:none}
+@media(prefers-reduced-motion:reduce){.wl-ov,.wl-box,.wl-gr{transition:none}.wl-logo.fl{animation:none}}
