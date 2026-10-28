@@ -1,0 +1,1 @@
+import{i as e,n as t}from"./router-s2WIPk_c.js";export{t as back,e as go};
