@@ -1,1 +1,0 @@
-import{l as e,s as t}from"./notif-route-DuCi1eXd.js";export{t as back,e as go};
