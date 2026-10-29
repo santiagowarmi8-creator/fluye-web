@@ -5,3 +5,5 @@
 .lg{min-height:40px;display:inline-flex;align-items:center}
 @media(max-width:440px){.logo{min-width:40px;justify-content:center}}
 .wl-l{padding:12px 14px;min-height:40px}
+.legal.wide{max-width:1120px}.legal.wide .plans3{grid-template-columns:repeat(3,1fr)}.legal .plan ul{padding-left:18px;margin:8px 0 18px;flex:1}.legal .plan.pro li{color:color-mix(in srgb,var(--invfg) 78%,transparent)}.legal .plan .btn{margin-top:auto}.legal .price,.legal .plans3{margin-top:12px}.legal .lead{max-width:680px}.mor{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:16px 18px;margin:28px 0 16px}.mor p{margin:0 0 6px}.mor p:last-child{margin:0}.mor b{color:var(--fg)}
+@media(max-width:900px){.legal.wide .plans3,.legal .price{grid-template-columns:1fr}.legal h1{font-size:36px}}
