@@ -1,0 +1,1 @@
+import{l as e,s as t}from"./notif-route-Dz_E5-ZJ.js";export{t as back,e as go};
