@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./web-DkW8pLt5.js","./dist-DmDbRpQU.js","./definitions-Cy7BZa5q.js"])))=>i.map(i=>d[i]);
+import{a as e}from"./dist-DmDbRpQU.js";import{t}from"./preload-helper-BaNbYf_w.js";import"./definitions-Cy7BZa5q.js";var n=e(`NativeBiometric`,{web:()=>t(()=>import(`./web-DkW8pLt5.js`).then(e=>new e.NativeBiometricWeb),__vite__mapDeps([0,1,2]),import.meta.url)});export{n as NativeBiometric};

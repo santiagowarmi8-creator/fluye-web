@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./web-BB3SijtV.js","./dist-DmDbRpQU.js"])))=>i.map(i=>d[i]);
-import{t as e}from"./preload-helper-BaNbYf_w.js";import{a as t}from"./dist-DmDbRpQU.js";var n=t(`Device`,{web:()=>e(()=>import(`./web-BB3SijtV.js`).then(e=>new e.DeviceWeb),__vite__mapDeps([0,1]),import.meta.url)});export{n as Device};
