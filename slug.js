@@ -1,0 +1,2 @@
+/* 404 → página del negocio en la app (/barberia-x?src=qr → /app/?n=barberia-x&src=qr) */
+(function(){var p=location.pathname.replace(/\/+$/,'').replace(/^\/+/,'');try{p=decodeURIComponent(p)}catch(e){}if(/^[A-Za-z0-9-]{2,60}$/.test(p)){document.documentElement.style.visibility='hidden';location.replace('/app/?n='+encodeURIComponent(p.toLowerCase())+(location.search?'&'+location.search.slice(1):''))}})();
