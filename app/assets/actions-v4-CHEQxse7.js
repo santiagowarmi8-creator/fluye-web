@@ -1,0 +1,1 @@
+import{R as e}from"./notif-route-YjsSV4Xj.js";export{e as A4};
