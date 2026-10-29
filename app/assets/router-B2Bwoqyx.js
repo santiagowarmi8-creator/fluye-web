@@ -1,0 +1,1 @@
+import{l as e,s as t}from"./notif-route-BN_oA_gV.js";export{t as back,e as go};
