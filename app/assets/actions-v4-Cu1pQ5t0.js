@@ -1,1 +1,0 @@
-import{R as e}from"./notif-route-Dz_E5-ZJ.js";export{e as A4};
