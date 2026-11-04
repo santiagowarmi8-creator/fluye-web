@@ -8,7 +8,7 @@
     var rv = d.querySelectorAll('.rv');
     if (reduce || !('IntersectionObserver' in window)) { rv.forEach(function (e) { e.classList.add('in'); }); }
     else {
-      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var g = e.target.closest('.gal'); (g ? g.querySelectorAll('.rv') : [e.target]).forEach(function (x) { x.classList.add('in'); io.unobserve(x); }); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
       rv.forEach(function (e) { io.observe(e); });
     }
     // contadores
