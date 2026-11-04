@@ -1,1 +1,0 @@
-import{a as e,l as t,s as n}from"./security-CoSA2T23.js";export{e as back,n as go,t as openModal};
